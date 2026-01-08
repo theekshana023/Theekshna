@@ -3,183 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudyHub - Student Login</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>The Golden Fork | Fine Dining</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
-        /* --- General Reset & Layout --- */
+        /* --- 1. Global Styles --- */
+        :root {
+            --primary-gold: #c59d5f;
+            --dark-bg: #1a1a1a;
+            --text-light: #f1f1f1;
+            --text-muted: #a0a0a0;
+        }
+
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
         }
 
         body {
-            /* Flexbox to center the card */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            
-            /* Background: A soft study-themed gradient */
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Lato', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
         }
 
-        /* --- The Login Card --- */
-        .login-container {
-            background-color: #ffffff;
-            width: 100%;
-            max-width: 400px;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            text-align: center;
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
         }
 
-        /* Header Section */
-        .login-header h2 {
-            color: #333;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
 
-        .login-header p {
-            color: #888;
-            font-size: 14px;
-            margin-bottom: 30px;
-        }
-
-        /* --- Form Elements --- */
-        .input-group {
-            position: relative;
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #555;
-            font-size: 13px;
-            font-weight: 500;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e1e1e1;
-            border-radius: 10px;
-            font-size: 14px;
-            outline: none;
-            transition: 0.3s ease;
-        }
-
-        /* Highlight input on focus */
-        .input-group input:focus {
-            border-color: #667eea;
-            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
-        }
-
-        /* --- Actions (Forgot PW / Button) --- */
-        .options {
+        /* --- 2. Navigation --- */
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 12px;
-            margin-bottom: 25px;
-        }
-
-        .options label {
-            color: #666;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-        }
-        
-        .options input {
-            margin-right: 5px;
-        }
-
-        .forgot-pw {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .forgot-pw:hover {
-            text-decoration: underline;
-        }
-
-        .login-btn {
+            padding: 20px 50px;
+            position: absolute;
             width: 100%;
-            padding: 14px;
-            background: linear-gradient(to right, #667eea, #764ba2);
-            color: white;
-            border: none;
-            border-radius: 10px;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-gold);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        .btn-reserve {
+            padding: 10px 25px;
+            border: 2px solid var(--primary-gold);
+            color: var(--primary-gold);
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .btn-reserve:hover {
+            background-color: var(--primary-gold);
+            color: #fff;
+        }
+
+        /* --- 3. Hero Section --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 40px;
+            color: #ddd;
+        }
+
+        .btn-main {
+            background-color: var(--primary-gold);
+            color: #fff;
+            padding: 15px 40px;
             font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: transform 0.3s;
         }
 
-        .login-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.3);
+        .btn-main:hover {
+            transform: scale(1.05);
+            background-color: #b08b50;
         }
 
-        /* --- Footer --- */
-        .signup-link {
-            margin-top: 25px;
-            font-size: 13px;
-            color: #666;
+        /* --- 4. Featured Menu Section --- */
+        .menu-preview {
+            padding: 80px 50px;
+            text-align: center;
+            background-color: #1f1f1f;
         }
 
-        .signup-link a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
+        .section-title {
+            color: var(--primary-gold);
+            font-size: 2.5rem;
+            margin-bottom: 50px;
         }
 
-        .signup-link a:hover {
-            text-decoration: underline;
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .menu-item {
+            background-color: #252525;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .item-info {
+            padding: 25px;
+            text-align: left;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed #444;
+            padding-bottom: 10px;
+        }
+
+        .item-header h3 { font-size: 1.2rem; color: #fff; }
+        .price { color: var(--primary-gold); font-weight: bold; font-size: 1.2rem; }
+
+        .item-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- 5. Footer --- */
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+            background-color: #111;
+            color: #888;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
 
-    <div class="login-container">
-        <div class="login-header">
-            <h2>Welcome Back</h2>
-            <p>Please enter your details to study.</p>
-        </div>
+    <nav>
+        <div class="logo">THE GOLDEN FORK</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Menu</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#" class="btn-reserve">Book a Table</a></li>
+        </ul>
+    </nav>
 
-        <form action="#">
-            <div class="input-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" placeholder="student@example.com" required>
+    <section class="hero">
+        <h1>Taste the Extraordinary</h1>
+        <p>Experience an unforgettable culinary journey combining classic flavors with modern techniques in the heart of the city.</p>
+        <a href="#" class="btn-main">View Full Menu</a>
+    </section>
+
+    <section class="menu-preview">
+        <h2 class="section-title">Our Signature Dishes</h2>
+        
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1544025162-d76690b6d012?q=80&w=1000&auto=format&fit=crop" alt="Steak">
+                <div class="item-info">
+                    <div class="item-header">
+                        <h3>Grilled Ribeye</h3>
+                        <span class="price">$35</span>
+                    </div>
+                    <p class="item-desc">Premium angus beef served with roasted garlic mash, seasonal vegetables, and red wine reduction.</p>
+                </div>
             </div>
 
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="••••••••" required>
-            </div>
-
-            <div class="options">
-                <label>
-                    <input type="checkbox"> Remember me
-                </label>
-                <a href="#" class="forgot-pw">Forgot Password?</a>
-            </div>
-
-            <button type="submit" class="login-btn">Log In</button>
-        </form>
-
-        <div class="signup-link">
-            Don't have an account? <a href="#">Join for free</a>
-        </div>
-    </div>
-
-</body>
-</html>
+            <div class="menu-item">
+                <img src="
